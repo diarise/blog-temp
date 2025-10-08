@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<section class="archive-section py-5">
+
+  <!-- Full-width header wrapper (prevents header from being affected by .row flex) -->
+  <div class="archive-header-wrapper" style="width:100%; clear:both;">
+    <div class="container">
+      <div class="archive-header text-center mb-4">
+        <h1 class="archive-title mb-2" style="font-weight:700;">Category: {{ page.title }}</h1>
+        <p class="text-muted mb-0">Explore stories filed under <strong>{{ page.title }}</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main posts container -->
+  <div class="container">
+
+    {% comment %}
+      Try to get posts via site.categories first (fast & reliable).
+      Fallback to scanning all posts if the key wasn't found (handles case/slug differences).
+    {% endcomment %}
+    {% assign cat_name = page.category | default: page.title %}
+    {% assign category_posts = site.categories[cat_name] %}
+
+    {% if category_posts == nil %}
+      {% assign filter_expr = "p.categories contains '" | append: cat_name | append: "'" %}
+      {% assign category_posts = site.posts | where_exp: "p", filter_expr %}
+    {% endif %}
+
+    {% if category_posts and category_posts.size > 0 %}
+      <div class="row mt-3">
+        {% for post in category_posts %}
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              {% if post.image %}
+                <a href="{{ post.url | relative_url }}">
+                  <img src="{{ post.image | relative_url }}" class="card-img-top" alt="{{ post.title }}" style="height:190px;object-fit:cover;">
+                </a>
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="{{ post.url | relative_url }}" class="text-dark">{{ post.title }}</a>
+                </h5>
+                <p class="card-text text-muted">{{ post.excerpt | strip_html | truncate:120 }}</p>
+                <p class="small text-muted">{{ post.date | date: "%B %d, %Y" }}</p>
+                <a href="{{ post.url | relative_url }}" class="btn btn-outline-primary btn-sm">Read More</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-light text-center">
+        No posts found for <strong>{{ page.title }}</strong>.
+      </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+      <a href="/browse/" class="btn btn-sm btn-primary">← Back to Blog Topics</a>
+    </div>
+  </div>
+</section>

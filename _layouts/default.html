@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#003580">
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  <!-- ✅ SEO Tags -->
+  {% seo %}
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "image": ["{{ page.image | absolute_url }}"],
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Voyage By Luna",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.logo | absolute_url }}"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endif %}
+  <!-- ✅ Styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://voyagebyluna.com/styles.css">
+  <link rel="stylesheet" href="{{ "/assets/css/blog.css" | relative_url }}">
+
+  <!-- ✅ Canonical URL for SEO -->
+  {% if page.permalink %}
+    <link rel="canonical" href="{{ site.url }}{{ page.permalink | downcase }}">
+  {% endif %}
+
+  <!-- ✅ Open Graph Meta -->
+  {% if page.layout == "post" %}
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ page.title | escape }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 150 }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    {% if page.image %}
+      <meta property="og:image" content="{{ page.image | absolute_url }}">
+    {% endif %}
+  {% else %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title | escape }}">
+    <meta property="og:description" content="{{ site.description | escape }}">
+    <meta property="og:url" content="{{ site.url }}">
+    {% if site.logo %}
+      <meta property="og:image" content="{{ site.logo | absolute_url }}">
+    {% endif %}
+  {% endif %}
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@voyagebyluna">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 150 }}{% else %}{{ site.description | escape }}{% endif %}">
+  {% if page.image %}
+    <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  {% endif %}
+</head>
+
+<body>
+
+  <!-- ✅ Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-no-opacity" id="mainHeader">
+      <a class="navbar-brand" href="https://voyagebyluna.com">
+        <img src="https://voyagebyluna.com/images/logo.png" alt="Logo Voyage By Luna">
+        Voyage By Luna
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="https://voyagebyluna.com#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://voyagebyluna.com#top-destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://voyagebyluna.com#packages">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://voyagebyluna.com#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://voyagebyluna.com#career">Career</a></li>
+          <li class="nav-item active"><a class="nav-link" href="{{ "/" | relative_url }}">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" style="margin-top:50px;">
+    {{ content }}
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer class="bg-light text-light py-4">
+    <div class="container">
+      <div class="row">
+        <!-- Logo -->
+        <div class="col-md-4 text-center mb-4">
+          <img src="https://voyagebyluna.com/images/logo.png" alt="Logo Voyage By Luna" class="img-fluid" style="max-width: 150px;">
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 text-center">
+          <h5 class="text-uppercase">Contact Us</h5>
+          <p>Email: soukeyna@voyagebyluna.com <br> Phone: +1 (424) 279 0200</p>
+          <p>&copy; {{ site.time | date: "%Y" }} Voyage By Luna. All rights reserved.</p>
+        </div>
+
+        <!-- Social -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase">Follow Us</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="https://www.facebook.com/VoyageByLuna" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="https://twitter.com/voyagebyluna" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/voyagebyluna/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/company/voyage-by-luna/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.pinterest.com/VoyageByLuna/" target="_blank"><i class="fab fa-pinterest fa-2x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+<a href="/browse/" 
+   class="btn btn-primary position-fixed" 
+   style="bottom: 20px; right: 20px; z-index: 1000; border-radius: 30px; padding: 10px 20px; font-weight: 500;">
+  🌍 Browse Blog
+</a>
+  <!-- ✅ Pinterest SDK -->
+  <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+  <!-- ✅ Core JS -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ Smart Redirect for Tags & Categories -->
+  <script>
+  (function() {
+    const path = window.location.pathname.toLowerCase();
+
+    // Normalize URLs like /categories-travel/ → /categories/travel/
+    const match = path.match(/^\/(categories|tags)[-\/]([a-z0-9\-\_]+)/);
+    if (match) {
+      const section = match[1];
+      const slug = match[2];
+      const correctUrl = `${window.location.origin}/${section}/${slug}/`;
+      if (window.location.href.toLowerCase() !== correctUrl) {
+        window.location.replace(correctUrl);
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
