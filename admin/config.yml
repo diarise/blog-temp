@@ -1,0 +1,45 @@
+backend:
+  name: github
+  repo: diarise/blog
+  branch: main
+  base_url: https://decap-cms-oauth-ten.vercel.app
+  auth_endpoint: auth
+
+# Enable drafts + workflow
+publish_mode: editorial_workflow  
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Categories", name: "categories", widget: "list"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Featured image", name: "image", widget: "image"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Pinterest Link", name: "pinterest", widget: "string", required: false, hint: "Optional: Paste the Pinterest pin/board URL"}
+
+  - name: "products"
+    label: "Travel Store Products"
+    files:
+      - label: "Products List"
+        name: "products"
+        file: "_data/products.yml"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}

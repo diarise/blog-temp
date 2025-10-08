@@ -1,0 +1,494 @@
+/* ================================
+   BLOG STYLING (VOYAGE BY LUNA)
+   ================================ */
+
+/* ----------------
+   Blog Homepage
+------------------- */
+#blog h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #003580;
+}
+
+#blog h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+#blog .card,
+.blog-card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+#blog .card:hover,
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.blog-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.blog-card h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.blog-card .card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ----------------
+   Featured Post
+------------------- */
+#blog .row.mb-5 h2 {
+  font-size: 2rem;
+}
+
+#blog .row.mb-5 img {
+  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+/* ----------------
+   Single Post Page
+------------------- */
+#single-post h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #003580;
+}
+
+#single-post .post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+#single-post img {
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* ----------------
+   Categories & Tags
+------------------- */
+.post-categories .badge {
+  background-color: #003580;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 0.4rem 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.post-categories .badge:hover {
+  background-color: #FF6C00;
+  color: #fff;
+  text-decoration: none;
+}
+
+.post-tags .badge {
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+  transition: all 0.3s ease;
+}
+.post-tags .badge:hover {
+  background-color: #FF6C00;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ----------------
+   Related Posts
+------------------- */
+.related-posts h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #003580;
+}
+
+.related-posts .related-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.related-posts .related-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.related-posts .card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* ----------------
+   CTA & Newsletter
+------------------- */
+.cta-box {
+  background: linear-gradient(135deg, rgba(255,108,0,0.08), rgba(0,53,128,0.06));
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
+  text-align: center;
+}
+
+.cta-box h4,
+.newsletter-box h4 {
+  color: #003580;
+  font-weight: 700;
+}
+
+.cta-box .btn-primary,
+.newsletter-box button,
+.product-card .btn {
+  background-color: #FF6C00;
+  border-color: #FF6C00;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-box .btn-primary:hover,
+.newsletter-box button:hover,
+.product-card .btn:hover {
+  background-color: #e85e00;
+  border-color: #e85e00;
+}
+
+.newsletter-box {
+  background: #f9f9f9;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+/* ----------------
+   Product Cards
+------------------- */
+.product-card {
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fff;
+  padding: 10px;
+}
+
+/* ----------------
+   Post Content Media
+------------------- */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.post-content figcaption {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.post-content a {
+  color: #003580;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(0,53,128,0.2);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.post-content a:hover {
+  color: #FF6C00;
+  border-bottom-color: #FF6C00;
+}
+
+/* ----------------
+   Pinterest CTA
+------------------- */
+.btn-pinterest {
+  display: inline-block;
+  background-color: #E60023;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.btn-pinterest:hover {
+  background-color: #c10f1c;
+  color: #fff !important;
+}
+
+/* ----------------
+   Responsive Fixes
+------------------- */
+@media (max-width: 992px) {
+  #blog h1 { font-size: 2rem; }
+  #blog h3 { font-size: 1.5rem; }
+  .blog-card h5 { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  #blog .row.mb-5 { flex-direction: column; }
+  #blog .row.mb-5 img { margin-bottom: 1rem; max-height: 300px; }
+  #blog .row.mb-5 h2 { font-size: 1.5rem; }
+  .blog-card img, .product-card img { aspect-ratio: auto; }
+}
+
+@media (max-width: 576px) {
+  #blog h1 { font-size: 1.75rem; }
+  .blog-card h5 { font-size: 0.95rem; }
+  .blog-card .card-text { font-size: 0.9rem; }
+  .cta-box { padding: 1.5rem; }
+}
+
+
+/* === Blog Grid Styling === */
+#all-posts h1 {
+  font-size: 2.2rem;
+  color: #003580;
+  font-weight: 700;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.badge {
+  background-color: rgba(0,53,128,0.08);
+  color: #003580;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  padding: 0.4em 0.7em;
+}
+
+.hover-zoom img {
+  transition: transform 0.4s ease;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.05);
+}
+/* === Category & Tag Index Styling === */
+#categories h1, #tags h1 {
+  color: #003580;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag-badge {
+  background-color: rgba(0,53,128,0.08);
+  color: #003580;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.tag-badge:hover {
+  background-color: #003580;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.archive-section {
+  padding: 3rem 1rem;
+  background-color: #fafafa;
+}
+
+.archive-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.archive-header p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.archive-post img {
+  border-radius: 0.75rem;
+}
+
+.archive-post h2 {
+  color: #111;
+}
+
+.archive-post p {
+  color: #444;
+}
+
+.archive-header {
+  display: block;
+  clear: both;
+  width: 100%;
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.archive-header .archive-title {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* ------------------------------
+   BLOG ARTICLE TEXT RESET
+   ------------------------------ */
+.post-content, 
+article, 
+.entry-content {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #212529;
+  font-weight: 400;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Remove any pasted inline font, color, or size */
+.post-content * {
+  all: unset;
+  display: revert;
+  font-family: inherit !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+  text-align: inherit !important;
+}
+
+/* Restore key elements after reset */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  all: revert;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: #111;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.post-content h1 { font-size: 2rem; }
+.post-content h2 { font-size: 1.6rem; }
+.post-content h3 { font-size: 1.3rem; }
+
+.post-content p {
+  all: revert;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  color: #333;
+}
+
+.post-content strong { font-weight: 600; }
+.post-content em { font-style: italic; }
+.post-content a {
+  color: #0077cc;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.post-content a:hover {
+  color: #005999;
+}
+
+.post-content ul, 
+.post-content ol {
+  all: revert;
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content blockquote {
+  all: revert;
+  border-left: 4px solid #0077cc;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
+  margin: 1.5rem 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
